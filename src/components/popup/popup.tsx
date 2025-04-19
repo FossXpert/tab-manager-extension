@@ -17,7 +17,7 @@ const Popup = () => {
         backgroundColor: "#f3f4f6",
         color: "#111827",
         minHeight: "",
-        width: 'max-content',
+        width: "max-content",
         boxSizing: "border-box",
       }}
     >
@@ -35,6 +35,8 @@ const Popup = () => {
         <div
           key={tab.id}
           style={{
+            display: "flex",
+            alignItems: "center",
             marginBottom: "8px",
             padding: "6px",
             border: "1px solid #e5e7eb",
@@ -50,25 +52,39 @@ const Popup = () => {
             (e.currentTarget.style.transform = "scale(1)")
           }
         >
-          <p
-            style={{
-              margin: "0 0 8px",
-              fontWeight: "600",
-              fontSize: "16px",
-              color: "#374151",
-            }}
-          >
-            {tab.title || "No Title"}
-          </p>
-          <small
-            style={{
-              color: "#6b7280",
-              fontSize: "14px",
-              wordBreak: "break-word",
-            }}
-          >
-            {tab.url}
-          </small>
+          {tab.favIconUrl && (
+            <img
+              src={tab.favIconUrl}
+              alt="Tab Icon"
+              style={{
+                width: "24px",
+                height: "24px",
+                marginRight: "12px",
+                borderRadius: "4px",
+              }}
+            />
+          )}
+          <div>
+            <p
+              style={{
+                margin: "0 0 8px",
+                fontWeight: "600",
+                fontSize: "16px",
+                color: "#374151",
+              }}
+            >
+              {tab.title || "No Title"}
+            </p>
+            <small
+              style={{
+                color: "#6b7280",
+                fontSize: "14px",
+                wordBreak: "break-word",
+              }}
+            >
+              {tab.url}
+            </small>
+          </div>
         </div>
       ))}
     </div>
