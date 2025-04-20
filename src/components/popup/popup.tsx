@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { getFilteredTabs } from "../../utils/utils";
-import { TabCard } from "../TabCard";
+import { TabCard } from "../Tabs/TabCard";
 
 
 
