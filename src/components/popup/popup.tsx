@@ -26,7 +26,7 @@ const Popup = () => {
         placeholder="Search tabs..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ width: "100%", padding: "8px", marginBottom: "16px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px", boxSizing: "border-box" }}
+        style={{ width: "100%", padding: "8px", marginBottom: "6px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px", boxSizing: "border-box" }}
       />
       {filteredTabs.map((tab) => (
         <TabCard key={`${tab.id ?? tab.url}`} tab={tab} searchQuery={searchQuery}/>
