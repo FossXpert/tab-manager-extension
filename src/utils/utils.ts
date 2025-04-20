@@ -1,21 +1,37 @@
 export const getFilteredTabs = (
     tabs: chrome.tabs.Tab[],
     query: string
-): chrome.tabs.Tab[] => {
+  ): chrome.tabs.Tab[] => {
     const lowerQuery = query.toLowerCase();
-
-    return tabs
-        .filter(
-            (tab) =>
-                tab.title?.toLowerCase().includes(lowerQuery) ||
-                tab.url?.toLowerCase().includes(lowerQuery)
-        )
-        .sort((a, b) => {
-            const aTitleMatch = a.title?.toLowerCase().includes(lowerQuery) ? 1 : 0;
-            const bTitleMatch = b.title?.toLowerCase().includes(lowerQuery) ? 1 : 0;
-            const aUrlMatch = a.url?.toLowerCase().includes(lowerQuery) ? 1 : 0;
-            const bUrlMatch = b.url?.toLowerCase().includes(lowerQuery) ? 1 : 0;
-
-            return bTitleMatch - aTitleMatch || bUrlMatch - aUrlMatch;
-        });
-};
+  
+    const score = (text: string) => {
+      if (text.startsWith(lowerQuery)) return 2;
+      if (text.includes(lowerQuery)) return 1;
+      return 0;
+    };
+  
+    const filtered = tabs.filter(
+      (tab) =>
+        tab.title?.toLowerCase().includes(lowerQuery) ||
+        tab.url?.toLowerCase().includes(lowerQuery)
+    );
+  
+    // If searching, sort by score
+    if (query.trim()) {
+      return filtered.sort((a, b) => {
+        const aTitle = a.title?.toLowerCase() ?? "";
+        const bTitle = b.title?.toLowerCase() ?? "";
+        const aUrl = a.url?.toLowerCase() ?? "";
+        const bUrl = b.url?.toLowerCase() ?? "";
+  
+        const aScore = score(aTitle) + score(aUrl);
+        const bScore = score(bTitle) + score(bUrl);
+  
+        return bScore - aScore;
+      });
+    }
+  
+    // No search: return tabs in reverse order (last opened first)
+    return [...tabs].sort((a, b) => b.index - a.index);
+  };
+  
