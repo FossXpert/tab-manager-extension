@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-export const TabCard = memo(({ tab, searchQuery }: { tab: chrome.tabs.Tab; searchQuery: string }) => {
+export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab: chrome.tabs.Tab; searchQuery: string; createdTime?: number; isClosed?: boolean }) => {
   const highlightMatch = (text: string, color: string) => {
     if (!searchQuery.trim()) return text;
     const regex = new RegExp(`(${searchQuery})`, "gi");
@@ -9,30 +9,58 @@ export const TabCard = memo(({ tab, searchQuery }: { tab: chrome.tabs.Tab; searc
     );
   };
 
-  const getLetter = () => {
-    const firstChar = (tab.title || tab.url || "").trim().charAt(0).toUpperCase();
-    return firstChar.match(/[A-Z0-9]/) ? firstChar : "#";
+  const getAgeLabel = () => {
+    if (!createdTime) return null;
+    const seconds = Math.floor((Date.now() - createdTime) / 1000);
+    if (seconds < 60) return `${seconds}s ago`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    return `${hours}h ago`;
   };
 
+  const handleClose = (e: React.MouseEvent) => { e.stopPropagation(); if (tab.id !== undefined) { chrome.tabs.remove(tab.id); } };
+  const handleStash = (e: React.MouseEvent) => { e.stopPropagation(); alert(`Stashed tab: ${tab.title}`); };
+  const handleReopen = (e: React.MouseEvent) => { e.stopPropagation(); chrome.sessions.restore(tab.sessionId as string); };
+
   return (
-    <div key={`${tab.id ?? tab.url}`} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px", padding: "6px", border: "1px solid #e5e7eb", borderRadius: "8px", backgroundColor: "#ffffff", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", transition: "transform 0.2s, box-shadow 0.2s", height: "38px", overflow: "hidden" }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+    <div key={`${tab.id ?? tab.url}`} style={{
+      display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", marginBottom: "8px",
+      padding: "6px 10px", border: "1px solid #e5e7eb", borderRadius: "8px",
+      backgroundColor: isClosed ? "#f9fafb" : "#ffffff",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)", transition: "transform 0.2s", cursor: isClosed ? "default" : "pointer",
+      opacity: isClosed ? 0.6 : 1
+    }}
+      onClick={() => !isClosed && tab.id && chrome.tabs.update(tab.id, { active: true })}
     >
-      <div style={{ display: "flex", alignItems: "center", overflow: "hidden", flex: 1 }}>
-        {tab.favIconUrl && <img src={tab.favIconUrl} alt="Tab Icon" style={{ width: "24px", height: "24px", marginRight: "12px", borderRadius: "4px", flexShrink: 0 }} />}
-        <div style={{ overflow: "hidden" }}>
-          <p style={{ margin: "0 0 4px", fontWeight: 600, fontSize: "14px", color: "#374151", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "calc(94vw - 110px)" }}>
-            {highlightMatch(tab.title || "No Title", "#2563eb")}
-          </p>
-          <small style={{ color: "#6b7280", fontSize: "12px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", display: "block", maxWidth: "calc(94vw - 110px)" }}>
-            {highlightMatch(tab.url ?? "", "#10b981")}
-          </small>
-        </div>
+      {tab.favIconUrl && <img src={tab.favIconUrl} alt="Tab Icon" style={{ width: "20px", height: "20px", flexShrink: 0 }} />}
+      <div style={{ overflow: "hidden", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <span style={{
+          fontSize: "13px", fontWeight: 500,
+          fontStyle: isClosed ? "italic" : "normal",
+          color: "#374151", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"
+        }}>
+          {highlightMatch(tab.title || "No Title", "#2563eb")}
+        </span>
+        <span style={{ fontSize: "11px", color: "#6b7280", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+          {highlightMatch(tab.url ?? "", "#10b981")}
+        </span>
       </div>
-      <div style={{ marginLeft: "10px", width: "24px", height: "24px", borderRadius: "50%", backgroundColor: "#f59e0b", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", fontSize: "12px", flexShrink: 0 }}>
-        {getLetter()}
+      <div>
+        {createdTime && <small style={{ fontSize: "11px", color: "#9ca3af", marginRight: "8px" }}>{getAgeLabel()}</small>}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "flex-end" }}>
+          {isClosed
+            ? <button onClick={handleReopen} style={iconButtonStyle}>♻️</button>
+            : <>
+                <button onClick={handleClose} style={iconButtonStyle}>❌</button>
+                <button onClick={handleStash} style={iconButtonStyle}>📥</button>
+              </>
+          }
+        </div>
       </div>
     </div>
   );
 });
+
+
+const iconButtonStyle: React.CSSProperties = { border: "none", background: "none", cursor: "pointer", fontSize: "14px", padding: "0", color: "#6b7280" };

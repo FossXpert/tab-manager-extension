@@ -1,36 +1,21 @@
-import { useEffect, useState, useMemo } from "react";
-import { getFilteredTabs } from "../../utils/utils";
-import { TabCard } from "../Tabs/TabCard";
-
-
+import { useState } from "react";
+import TabsNavigation from "./TabsNavigation";
+import OpenTabs from "../Tabs/OpenTabs";
+import RecentActivity from "../Recent/RecentActivity";
+import GroupedTabs from "../Tabs/GroupedTabs";
 
 const Popup = () => {
-  const [tabs, setTabs] = useState<chrome.tabs.Tab[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  useEffect(() => {
-    chrome.tabs.query({}, (results) => {
-      setTabs(results);
-    });
-  }, []);
-
-  const filteredTabs = useMemo(() => getFilteredTabs(tabs, searchQuery), [tabs, searchQuery]);
+  const [activeTab, setActiveTab] = useState<"open" | "recent" | "grouped">("open");
 
   return (
-    <div style={{ padding: "10px", fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", backgroundColor: "#f3f4f6", color: "#111827", width: "450px", boxSizing: "border-box" }}>
-      <h1 style={{ fontSize: "20px", fontWeight: "600", marginBottom: "16px", color: "#1f2937" }}>
-        Open Tabs
-      </h1>
-      <input
-        type="text"
-        placeholder="Search tabs..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ width: "100%", padding: "8px", marginBottom: "6px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px", boxSizing: "border-box" }}
-      />
-      {filteredTabs.map((tab) => (
-        <TabCard key={`${tab.id ?? tab.url}`} tab={tab} searchQuery={searchQuery}/>
-      ))}
+    <div style={{ width: "450px", padding: "10px", fontFamily: "Segoe UI, sans-serif" }}>
+      <TabsNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <div style={{ transition: "all 1s ease-in-out" }}>
+        {activeTab === "open" && <OpenTabs />}
+        {activeTab === "recent" && <RecentActivity />}
+        {activeTab === "grouped" && <GroupedTabs/>}
+      </div>
     </div>
   );
 };

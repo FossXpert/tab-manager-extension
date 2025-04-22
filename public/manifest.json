@@ -1,12 +1,17 @@
 {
-    "manifest_version": 3,
-    "name": "Tab Manager",
-    "version": "1.0",
-    "description": "Manage your tabs like a boss",
-    "action": {
-      "default_popup": "index.html"
-    },
-    "permissions": ["tabs", "scripting"],
-    "host_permissions": ["<all_urls>"]
-  }
-  
+  "manifest_version": 3,
+  "name": "Tab Manager",
+  "version": "1.0",
+  "description": "Manage your tabs like a boss",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "tabs",
+    "scripting",
+    "sessions"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
