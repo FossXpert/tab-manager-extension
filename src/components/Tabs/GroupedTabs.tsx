@@ -34,7 +34,7 @@ const GroupedTabs = () => {
         placeholder="Search grouped..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ width: "100%", padding: "8px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
+        style={{ width: "96%", padding: "8px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
       />
       {filteredGroupedTabs.map(([domain, tabs]) => (
         <div key={domain} style={{ marginBottom: "16px" }}>

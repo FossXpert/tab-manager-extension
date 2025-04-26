@@ -12,7 +12,7 @@ interface Props {
     ];
   
     return (
-      <div style={{ display: "flex", marginBottom: "12px", borderBottom: "2px solid #d1d5db" }}>
+      <div style={{ display: "", marginBottom: "12px", borderBottom: "2px solid #d1d5db" }}>
         {tabs.map(({ key, label }) => (
           <button
             key={key}
@@ -25,7 +25,6 @@ interface Props {
               fontWeight: activeTab === key ? 600 : 400,
               borderBottom: activeTab === key ? "3px solid #2563eb" : "3px solid transparent",
               color: activeTab === key ? "#2563eb" : "#6b7280",
-              transition: "all 1s",
               cursor: "pointer"
             }}
           >

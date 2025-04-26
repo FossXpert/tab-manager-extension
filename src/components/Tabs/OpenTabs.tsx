@@ -19,7 +19,7 @@ const OpenTabs = () => {
         placeholder="Search tabs..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ width: "100%", padding: "8px", marginBottom: "12px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
+        style={{ width: "96%", padding: "8px", marginBottom: "12px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
       />
       {filteredTabs.map((tab) => (
         <TabCard key={tab.id ?? tab.url} tab={tab} searchQuery={searchQuery} createdTime={Date.now() - 10000} />

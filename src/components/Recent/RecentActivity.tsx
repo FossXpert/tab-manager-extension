@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { TabCard } from "../Tabs/TabCard";
-import { getFilteredTabs } from "@/utils/utils";
+import { getFilteredTabs } from "../../utils/utils";
 
 const RecentActivity = () => {
   const [tabs, setTabs] = useState<chrome.tabs.Tab[]>([]);
@@ -22,7 +22,7 @@ const RecentActivity = () => {
         placeholder="Search recent..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ width: "100%", padding: "8px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
+        style={{ width: "96%", padding: "8px", border: "1px solid #d1d5db", borderRadius: "6px", fontSize: "14px" }}
       />
 
       <h3 style={{ marginBottom: "8px", fontSize: "15px", fontWeight: "600" }}>Recently Opened</h3>

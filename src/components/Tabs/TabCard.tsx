@@ -28,7 +28,7 @@ export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab:
       display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", marginBottom: "8px",
       padding: "6px 10px", border: "1px solid #e5e7eb", borderRadius: "8px",
       backgroundColor: isClosed ? "#f9fafb" : "#ffffff",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)", transition: "transform 0.2s", cursor: isClosed ? "default" : "pointer",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)", cursor: isClosed ? "default" : "pointer",
       opacity: isClosed ? 0.6 : 1
     }}
       onClick={() => !isClosed && tab.id && chrome.tabs.update(tab.id, { active: true })}
