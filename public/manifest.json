@@ -6,16 +6,23 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["tabs", "activeTab", "scripting", "sessions"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "sessions"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "commands": {
     "open-tabbar": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Y",
-        "mac": "Command+Shift+Y"
+        "default": "Ctrl+Y",
+        "mac": "Command+Y"
       },
       "description": "Open tab manager popup"
     }

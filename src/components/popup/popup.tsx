@@ -23,7 +23,7 @@ const Popup = () => {
   }, []);
 
   return (
-    <div style={{ width: "450px", padding: "10px", fontFamily: "Segoe UI, sans-serif" }}>
+    <div style={{ width: "388px", padding: "10px", fontFamily: "Segoe UI, sans-serif" }}>
       <button
         onClick={toggleFloatingWindow}
         style={{
