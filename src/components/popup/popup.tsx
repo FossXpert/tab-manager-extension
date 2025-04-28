@@ -36,7 +36,7 @@ const Popup = () => {
           cursor: "pointer"
         }}
       >
-        {isFloatingOpen ? "Close Floating Window" : "Open Floating Window"}
+        {isFloatingOpen ? "Close Floating Window" : "Floating Window (CTRL + Y)"}
       </button>
 
       <TabsNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
