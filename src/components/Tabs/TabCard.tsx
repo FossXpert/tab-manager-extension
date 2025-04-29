@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { toast } from "react-hot-toast";
 
 export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab: chrome.tabs.Tab; searchQuery: string; createdTime?: number; isClosed?: boolean }) => {
   const highlightMatch = (text: string, color: string) => {
@@ -19,9 +20,20 @@ export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab:
     return `${hours}h ago`;
   };
 
-  const handleClose = (e: React.MouseEvent) => { e.stopPropagation(); if (tab.id !== undefined) { chrome.tabs.remove(tab.id); } };
-  const handleStash = (e: React.MouseEvent) => { e.stopPropagation(); alert(`Stashed tab: ${tab.title}`); };
-  const handleReopen = (e: React.MouseEvent) => { e.stopPropagation(); chrome.sessions.restore(tab.sessionId as string); };
+  const handleClose = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (tab.id !== undefined) chrome.tabs.remove(tab.id);
+  };
+
+  const handleStash = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toast.success(`Stashed: ${tab.title}`, { duration: 4000 });
+  };
+
+  const handleReopen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    chrome.sessions.restore(tab.sessionId as string);
+  };
 
   return (
     <div key={`${tab.id ?? tab.url}`} style={{
@@ -61,6 +73,5 @@ export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab:
     </div>
   );
 });
-
 
 const iconButtonStyle: React.CSSProperties = { border: "none", background: "none", cursor: "pointer", fontSize: "14px", padding: "0", color: "#6b7280" };
