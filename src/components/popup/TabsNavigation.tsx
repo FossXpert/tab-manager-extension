@@ -6,7 +6,7 @@ interface Props {
   
   const TabsNavigation = ({ activeTab, setActiveTab }: Props) => {
     const tabs: { key: "open" | "recent" | "grouped"; label: string }[] = [
-      { key: "open", label: "Open Tabs" },
+      { key: "open", label: "Opened Tabs" },
       { key: "recent", label: "Recent Activity" },
       { key: "grouped", label: "Grouped" }
     ];
