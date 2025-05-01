@@ -6,10 +6,10 @@
   "action": {
     "default_popup": "index.html",
     "default_icon": {
-      "16": "icons/16.png",
-      "32": "icons/32.png",
-      "48": "icons/48.png",
-      "128": "icons/128.png"
+      "16": "icons/16-1.png",
+      "32": "icons/32-1.png",
+      "48": "icons/48-1.png",
+      "128": "icons/128-1.png"
     }
   },
   "permissions": [
@@ -34,9 +34,9 @@
     }
   },
   "icons": {
-    "16": "icons/16.png",
-    "32": "icons/32.png",
-    "48": "icons/48.png",
-    "128": "icons/128.png"
+    "16": "icons/16-1.png",
+    "32": "icons/32-1.png",
+    "48": "icons/48-1.png",
+    "128": "icons/128-1.png"
   }
 }
