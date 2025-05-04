@@ -15,8 +15,7 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "scripting",
-    "sessions"
+    "scripting"
   ],
   "host_permissions": [
     "<all_urls>"
