@@ -15,7 +15,6 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "scripting",
     "sessions"
   ],
   "host_permissions": [
