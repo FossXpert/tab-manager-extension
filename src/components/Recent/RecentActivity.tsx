@@ -11,7 +11,6 @@ const RecentActivity = () => {
     // Fetch open tabs
     chrome.tabs.query({}, (results) => setTabs(results));
 
-    // Fetch recently closed tabs/sessions
     chrome.sessions.getRecentlyClosed({ maxResults: 10 }, (sessions) => {
       if (chrome.runtime.lastError) {
         console.error("Error fetching recently closed sessions:", chrome.runtime.lastError.message);
