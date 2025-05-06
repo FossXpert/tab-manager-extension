@@ -1,5 +1,9 @@
 import { memo } from "react";
 import { toast } from "react-hot-toast";
+import { GoIssueReopened } from "react-icons/go";
+import { ImCross } from "react-icons/im";
+import { GiBloodyStash } from "react-icons/gi";
+
 
 export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab: chrome.tabs.Tab; searchQuery: string; createdTime?: number; isClosed?: boolean }) => {
   const highlightMatch = (text: string, color: string) => {
@@ -61,13 +65,20 @@ export const TabCard = memo(({ tab, searchQuery, createdTime, isClosed }: { tab:
       <div>
         {createdTime && <small style={{ fontSize: "11px", color: "#9ca3af", marginRight: "8px" }}>{getAgeLabel()}</small>}
         <div style={{ display: "flex", alignItems: "center", gap: "8px", justifyContent: "flex-end" }}>
-          {isClosed
-            ? <button onClick={handleReopen} style={iconButtonStyle}>♻️</button>
-            : <>
-                <button onClick={handleClose} style={iconButtonStyle}>❌</button>
-                <button onClick={handleStash} style={iconButtonStyle}>📥</button>
-              </>
-          }
+          {isClosed ? (
+            <button onClick={handleReopen} style={{ ...iconButtonStyle, color: "#10b981" }}>
+              <GoIssueReopened />
+            </button>
+          ) : (
+            <>
+              <button onClick={handleClose} style={{ ...iconButtonStyle, color: "#ef4444" }}>
+                <ImCross />
+              </button>
+              <button onClick={handleStash} style={{ ...iconButtonStyle, color: "#3b82f6" }}>
+                <GiBloodyStash />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
