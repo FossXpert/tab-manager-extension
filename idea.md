@@ -71,3 +71,50 @@ Yes, I have calculated the micronutrient profile based on your provided food ite
 3. **Main Sources**: Primary foods that contribute to the nutrient content in your meal.
 
 Let me know if you'd like to modify or add anything further!
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+Sure — let’s break this down properly:
+
+---
+
+### 🔹 **1. 200g Raw Boneless Chicken Breast**
+
+* Per 100g raw: \~110–120 kcal
+* **200g = \~220–240 kcal**
+
+---
+
+### 🔹 **2. 200g Chicken with Bone (e.g., drumstick, thigh with bone)**
+
+The key here is that **bones don’t contribute calories** — but they *do* take up weight.
+
+Rough estimate:
+
+* **Edible meat from 200g chicken with bone = \~120g actual meat**
+* For mixed cuts (like thigh/drumstick), it's often **\~180 kcal per 100g cooked meat**
+
+So:
+
+* **120g meat ≈ \~200–215 kcal** (depending on fat content, which is higher than breast)
+
+---
+
+### ✅ **Total Calories Summary**
+
+| Item                    | Weight                   | Approx. Calories   |
+| ----------------------- | ------------------------ | ------------------ |
+| Boneless Chicken Breast | 200g raw                 | \~220–240 kcal     |
+| Chicken with Bone       | 200g total (\~120g meat) | \~200–215 kcal     |
+| **Total**               |                          | **\~420–455 kcal** |
+
+---
+
+Let me know if you're cooking them plain or with oil/spices — that can add extra calories.
