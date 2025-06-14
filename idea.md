@@ -118,3 +118,54 @@ So:
 ---
 
 Let me know if you're cooking them plain or with oil/spices — that can add extra calories.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+Seconsd type of diet
+
+| Item                 | Calories  | Protein (g) | Fat (g) | Carbs (g) |
+| -------------------- | --------- | ----------- | ------- | --------- |
+| Peanuts + kiṣmīs    | 248       | 10          | 17      | 18        |
+| 1 L Whole Milk       | 600       | 32          | 32      | 48        |
+| 5 Boiled Eggs        | 350       | 30          | 25      | 0         |
+| 100 g Flattened Rice | 202       | 12          | 9       | 79        |
+| **Total**            | **1,400** | **84**      | **83**  | **145**   |
+
+
+micro details
+| Micronutrient       | Approx. Amount in Diet          | RDA (Male, 19–50) | % of RDA    | Key Sources in Diet               |
+| ------------------- | ------------------------------- | ----------------- | ----------- | --------------------------------- |
+| **Calcium**         | \~1,200–1,400 mg                | 1,000 mg          | ✅ 120–140%  | Milk, peanuts, eggs               |
+| **Iron**            | \~4–5 mg                        | 17 mg             | 🔶 25–30%   | Peanuts, rice, raisins            |
+| **Magnesium**       | \~150 mg                        | 340 mg            | 🔶 44%      | Peanuts, raisins, rice            |
+| **Zinc**            | \~3–4 mg                        | 12 mg             | 🔶 30–35%   | Eggs, milk, peanuts               |
+| **Phosphorus**      | \~800–900 mg                    | 700 mg            | ✅ 115–130%  | Eggs, milk                        |
+| **Potassium**       | \~1,500–1,800 mg                | 3,400 mg          | 🔶 45–53%   | Milk, raisins                     |
+| **Selenium**        | \~35–40 µg                      | 40 µg             | ✅ 90–100%   | Eggs, peanuts                     |
+| **Choline**         | \~300–350 mg                    | 550 mg            | 🔶 55–65%   | Eggs, milk                        |
+| **Vitamin A**       | \~300–400 IU                    | 3,000 IU          | 🔴 10–13%   | Eggs                              |
+| **Vitamin D**       | \~100 IU                        | 600 IU            | 🔴 \~17%    | Eggs, milk (small)                |
+| **Vitamin E**       | \~3–4 mg                        | 10 mg             | 🔶 30–40%   | Peanuts, rice                     |
+| **Vitamin B12**     | \~3–4 µg                        | 2.4 µg            | ✅ 125–160%  | Milk, eggs                        |
+| **Niacin (B3)**     | \~6–8 mg                        | 16 mg             | 🔶 40–50%   | Peanuts, rice, eggs               |
+| **Folate (B9)**     | \~120–150 µg                    | 400 µg            | 🔶 30–38%   | Eggs, rice, peanuts               |
+| **Riboflavin (B2)** | \~1.5 mg                        | 1.3 mg            | ✅ \~115%    | Milk, eggs                        |
+| **Thiamine (B1)**   | \~0.5–0.6 mg                    | 1.2 mg            | 🔶 \~45–50% | Rice, peanuts                     |
+| **Vitamin B6**      | \~0.8–1.0 mg                    | 1.3 mg            | 🟡 \~60–75% | Eggs, peanuts                     |
+| **Iodine**          | Unknown (varies by milk & salt) | 150 µg            | Unknown     | Possibly from milk (if fortified) |
+
