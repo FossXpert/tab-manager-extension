@@ -169,3 +169,13 @@ micro details
 | **Vitamin B6**      | \~0.8–1.0 mg                    | 1.3 mg            | 🟡 \~60–75% | Eggs, peanuts                     |
 | **Iodine**          | Unknown (varies by milk & salt) | 150 µg            | Unknown     | Possibly from milk (if fortified) |
 
+
+
+| Weight (kg) | BMR   | TDEE (BMR × 1.375) |
+| ----------- | ----- | ------------------ |
+| 60          | 1,507 | \~2,072 kcal       |
+| 65          | 1,557 | \~2,140 kcal       |
+| 70          | 1,607 | \~2,209 kcal       |
+| 75          | 1,657 | \~2,277 kcal       |
+| 80          | 1,707 | \~2,345 kcal       |
+
